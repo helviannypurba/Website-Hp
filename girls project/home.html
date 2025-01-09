@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Girls Store</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet" />
+  <style>
+    .h-section {
+      height: 30rem;
+    }
+
+    .produk {
+      width: 10rem;
+      background-color: white;
+      padding: 1rem;
+      border-radius: 1rem;
+    }
+
+    .produk img {
+      height: 9rem;
+    }
+
+    .produk div {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+  </style>
+</head>
+
+<body class="font-roboto bg-pink-50">
+  <header>
+    <nav>
+      <div
+        class="flex justify-center items-center py-1 bg-black text-white px-10 md:justify-between sm:justify-between">
+        <a href="home.html">
+          <h1 class="text-2xl font-bold text-white">Girls Store</h1>
+        </a>
+        <div class="gap-3 text-sm">
+          <div class="flex items-center gap-10">
+            <div class="hidden md:block">
+              <span>Bantuan | </span>
+              <span class="fa fa-headphones mr-2"></span>
+              <span>1500471</span>
+            </div>
+            <div class="hidden sm:block">
+              <span class="bi bi-phone"></span>
+              <span>Download Aplikasi GIRLS STORE</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="flex justify-between items-center py-5 px-10 bg-blue-900 text-white">
+        <div>
+          <a href="home.html">Beranda</a>
+        </div>
+
+
+        <div class="flex items-center gap-10">
+          <div class="bg-white text-black py-1 px-2 w-96 hidden rounded-md md:flex">
+            <input type="text" placeholder="Barang yang kamu cari" class="w-full focus:outline-none"
+              id="cariProdukDiNavigasi">
+            <button type="submit" class="bi bi-search" onclick="cariProdukDiNavigasi()"></button>
+          </div>
+          <div class="flex items-center gap-5">
+            <a href="favorit.html" class="bi bi-heart"></a>
+            <a href="keranjang.html" class="bi bi-cart"></a>
+            <a href="struk.html" class="bi bi-receipt"></a>
+            <div class="flex items-center gap-3" id="authentikasi"></div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <section class="h-section bg-white md:p-5">
+      <img
+        class="w-screen h-full bg-[url('https://storage.googleapis.com/eraspacelink/pmp/production/banners/images/iMMA1dEGd8gN9fQDx7Di4tCOo0npKctdzNnn7ShF.webp')] bg-center bg-cover rounded-xl">
+      </imh>
+    </section>
+  </header>
+
+  <main>
+    <div class="bg-blue-100 py-10 px-5 sm:px-8 md:px-10 lg:px-15 xl:px-20">
+      <div class="flex gap-3 items-center mb-6">
+        <h1 class="text-2xl font-semibold">Mungkin Cocok Buatmu</h1>
+        <a href="" class="py-1 px-4 bg-blue-900 text-white font-semibold rounded-lg text-center">Lihat Semua</a>
+      </div>
+      <div class="flex items-center gap-10">
+        <img src="https://cdnpro.eraspace.com/media/wysiwyg/banner/Default_1_.png" class="h-96 hidden md:block" alt="">
+        <div class="flex flex-wrap gap-5" id="listRekomendasiProduk"></div>
+      </div>
+    </div>
+
+    <div class="py-10 bg-white px-5 sm:px-8 md:px-10 lg:px-15 xl:px-20">
+      <h1 class="text-3xl mb-10 opacity-75 text-center xl:text-start">Merek Tersedia</h1>
+      <div class="flex flex-wrap justify-center gap-5 *:aspect-video">
+        <img class="aspect-video h-10 sm:h-15 md:h-20 lg:h-24 xl:h-28"
+          src="https://media.suara.com/pictures/970x544/2022/01/08/25753-ilustrasi-poco.jpg" alt="">
+        <img class="aspect-video h-10 sm:h-15 md:h-20 lg:h-24 xl:h-28"
+          src="https://download.logo.wine/logo/Vivo_(technology_company)/Vivo_(technology_company)-Logo.wine.png"
+          alt="">
+        <img class="aspect-video h-10 sm:h-15 md:h-20 lg:h-24 xl:h-28"
+          src="https://blob.cloudcomputing.id/images/e08887c2-28a9-4db0-a11e-0903c4ee7e7d/logo-samsung-blue-l-min.jpg"
+          alt="">
+        <img class="aspect-video h-10 sm:h-15 md:h-20 lg:h-24 xl:h-28"
+          src="https://asset.kompas.com/crops/rkWD_xGPxC0-5H_q71HuENHYF4I=/129x44:915x568/1200x800/data/photo/2021/03/31/6063e1bef334f.png"
+          alt="">
+        <img class="aspect-video h-10 sm:h-15 md:h-20 lg:h-24 xl:h-28"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzac8b2HE_gybK-u6G3OpFYrEbZvxT6biqSA&s" alt="">
+        <img class="aspect-video h-10 sm:h-15 md:h-20 lg:h-24 xl:h-28"
+          src="https://upload.wikimedia.org/wikipedia/commons/1/13/OPPO_Logo_wiki.png" alt="">
+      </div>
+    </div>
+
+    <div class="py-10 px-5 sm:px-8 md:px-10 lg:px-15 xl:px-20">
+      <div class="flex items-center justify-between mb-10">
+        <h1 class="text-3xl font-semibold">List Produk</h1>
+        <div class="flex gap-5">
+          <div class="hidden gap-3 *:opacity-70 md:flex">
+            <button id="tombolCariSemua" class="font-semibold :opacity-100 hover:text-blue-900"
+              onclick="cariSemuaProduk()">Semua</button>
+            <button id="tombolCariMerek" class="font-semibold :opacity-100 hover:text-blue-900"
+              onclick="cariProdukMelaluiMerek('Samsung')">Samsung</button>
+            <button id="tombolCariMerek" class="font-semibold :opacity-100 hover:text-blue-900"
+              onclick="cariProdukMelaluiMerek('Poco')">Poco</button>
+            <button id="tombolCariMerek" class="font-semibold :opacity-100 hover:text-blue-900"
+              onclick="cariProdukMelaluiMerek('Xiaomi')">Xiaomi</button>
+            <button id="tombolCariMerek" class="font-semibold :opacity-100 hover:text-blue-900"
+              onclick="cariProdukMelaluiMerek('Apple')">Apple</button>
+            <button id="tombolCariMerek" class="font-semibold :opacity-100 hover:text-blue-900"
+              onclick="cariProdukMelaluiMerek('Vivo')">Vivo</button>
+            <button id="tombolCariMerek" class="font-semibold :opacity-100 hover:text-blue-900"
+              onclick="cariProdukMelaluiMerek('Oppo')">Oppo</button>
+          </div>
+          <div class="bg-white text-black py-1 px-2 w-48 hidden rounded-md border-2 border-black md:flex">
+            <input type="text" placeholder="Nama Produk" class="w-full focus:outline-none" id="cariProduk">
+            <button type="submit" class="fa fa-search" onclick="cariProduk()"></button>
+          </div>
+        </div>
+      </div>
+      <div class="flex gap-5 flex-wrap justify-center md:justify-start" id="listProduk"></div>
+    </div>
+  </main>
+
+  <footer
+    class="bg-white py-10 flex flex-col justify-between gap-10 md:flex-row px-5 sm:px-8 md:px-10 lg:px-15 xl:px-20 *:flex-1">
+    <div>
+      <h1 class="text-2xl text-cyan-500 font-bold mb-10">Girls Store</h1>
+      <p class="opacity-70">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repudiandae dolore adipisci unde
+        recusandae similique eius ducimus eveniet fuga deserunt mollitia!</p>
+    </div>
+    <div class="flex gap-10 items-start md:justify-center">
+      <div>
+        <h1 class="text-2xl font-semibold mb-6">Girls Store</h1>
+        <ul>
+          <li class="opacity-70 hover:opacity-100"><a href="">Tentang Kami</a></li>
+          <li class="opacity-70 hover:opacity-100"><a href="">Hubungi Kami</a></li>
+          <li class="opacity-70 hover:opacity-100"><a href="">Karier</a></li>
+          <li class="opacity-70 hover:opacity-100"><a href="">Syarat Ketentuan dan Privasi</a></li>
+        </ul>
+      </div>
+      <div>
+        <h1 class="text-2xl font-semibold mb-6">Merek</h1>
+        <ul>
+          <li class="opacity-70 hover:opacity-100"><a href="">Xiaomi</a></li>
+          <li class="opacity-70 hover:opacity-100"><a href="">Vivo</a></li>
+          <li class="opacity-70 hover:opacity-100"><a href="">Oppo</a></li>
+          <li class="opacity-70 hover:opacity-100"><a href="">IOS</a></li>
+          <li class="opacity-70 hover:opacity-100"><a href="">Poco</a></li>
+          <li class="opacity-70 hover:opacity-100"><a href="">Samsung</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="flex flex-col md:items-end">
+      <div>
+        <h1 class="text-lg mb-4">Downlod Aplikasi Girls Store</h1>
+        <div class="flex gap-5 mb-8">
+          <img class="w-28" src="https://cdn.eraspace.com/pub/media/wysiwyg/footer/Ic_Google_Play_Store.png" alt="">
+          <img class="w-28" src="https://cdn.eraspace.com/pub/media/wysiwyg/footer/Ic_Apple_App_Store.png" alt="">
+        </div>
+      </div>
+      <div>
+        <h1 class="text-lg mb-4">Metode Pembayaran</h1>
+        <img src="https://cdnpro.eraspace.com/media/wysiwyg/footer/payment-footer-des24.png" alt="" class="w-64">
+      </div>
+    </div>
+  </footer>
+
+  <div
+    class="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 hidden rounded-xl gap-8 z-10 bg-white p-8 flex-col lg:flex-row"
+    id="detailProduk"></div>
+  <div class="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 hidden rounded-xl bg-white p-8"
+    id="pembelianProduk"></div>
+  <div class="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 hidden p-8 bg-white" id="strukPembelian"></div>
+
+  <script src="indes.js"></script>
+  <script>
+    const sudahLogin = JSON.parse(localStorage.getItem('sudah_login')) || '';
+
+    if (sudahLogin.kondisi == true && sudahLogin != '') {
+      document.getElementById('authentikasi').innerHTML = `
+              <span>${sudahLogin.username}</span>
+              <button class="py-1 px-4 bg-blue-800 font-semibold text-white" onclick="logout()">Logout</button>`
+    } else {
+      document.getElementById('authentikasi').innerHTML = `
+                <a href="login.html">Login</a>
+                <a href="register.html">Register</a>`;
+    }
+
+    function logout() {
+      localStorage.removeItem('sudah_login');
+      location.reload();
+      window.location - 'home.html';
+    }
+  </script>
+</body>
+
+</html>

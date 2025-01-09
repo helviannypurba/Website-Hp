@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+
+<body
+  class="w-full h-screen flex items-center justify-center bg-pink-50 bg-cover bg-center bg-no-repeat bg-[url('https://img.freepik.com/free-photo/working-woman-pink-desk-with-phone-copy-space_23-2148404501.jpg?t=st=1736429831~exp=1736433431~hmac=8f1e7713e047ff54d0d1456bde94b8bd3fcb2faef5595c2ada08da3bd88e9f02&w=996')]">
+  <div class="bg-white p-10 rounded-xl border-2 border-blue-600">
+    <div class="mb-16 text-center">
+      <h1 class="text-xl font-semibold text-blue-700 mb-1">Girls Store</h1>
+      <h2 class="text-3xl font-semibold">Login</h2>
+    </div>
+    <form id="login-form">
+      <div class="my-4">
+        <label for="login-username"><span class="bi bi-person text-xl mr-4"></span></label>
+        <input type="text" id="login-username" class="border-2 p-1 w-80 font-semibold" required placeholder="Username">
+      </div>
+      <div class="my-4 mb-10">
+        <label for="login-password"><span class="bi bi-shield-lock text-xl mr-4"></span></label>
+        <input type="password" id="login-password" class="border-2 p-1 w-80 font-semibold" required placeholder="Password">
+      </div>
+      <button type="submit" class="py-1 px-4 bg-blue-900 text-white font-semibold">Masuk</button>
+      <p id="message"></p>
+      <p>Belum punya akun? <a href="register.html" class="text-blue-700 underline">Daftar</a></p>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("login-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const username = document.getElementById("login-username").value;
+      const password = document.getElementById("login-password").value;
+
+      const user = JSON.parse(localStorage.getItem(username));
+
+      if (!user) {
+        displayMessage("User tidak ditemukan", "gagal");
+        return;
+      }
+
+      if (user.password === password) {
+        displayMessage(`Berhasil masuk`, "berhasil");
+      } else {
+        displayMessage("Password salah", "gagal");
+        return;
+      }
+
+      localStorage.setItem('sudah_login', JSON.stringify({kondisi: true, username}));
+      e.target.reset();
+      window.location = 'home.html';
+    });
+
+    function displayMessage(message, type) {
+      const messageElement = document.getElementById("message");
+      messageElement.textContent = message;
+      messageElement.style.color = type === "berhasil" ? "green" : "red";
+    }
+  </script>
+</body>
+
+</html>

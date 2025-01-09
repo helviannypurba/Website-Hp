@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Favorit</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <style>
+    .produk {
+      width: 10rem;
+      background-color: white;
+      padding: 1rem;
+      border-radius: 1rem;
+    }
+
+    .produk img {
+      height: 9rem;
+    }
+
+    .produk div {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <div class="flex justify-center items-center py-1 bg-black text-white px-10 md:justify-between sm:justify-between">
+      <a href="home.html">
+        <h1 class="text-2xl font-bold text-white">Girls Store</h1>
+      </a>
+      <div class="gap-3 text-sm">
+        <div class="flex items-center gap-10">
+          <div class="hidden md:block">
+            <span>Bantuan | </span>
+            <span class="fa fa-headphones mr-2"></span>
+            <span>1500471</span>
+          </div>
+          <div class="hidden sm:block">
+            <span class="bi bi-phone"></span>
+            <span>Download Aplikasi GIRLS STORE</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="flex justify-between items-center py-5 px-10 bg-blue-900 text-white">
+      <div>
+        <a href="home.html">Beranda</a>
+      </div>
+
+
+      <div class="flex items-center gap-10">
+        <div class="bg-white text-black py-1 px-2 w-96 hidden rounded-md md:flex">
+          <input type="text" placeholder="Barang yang kamu cari" class="w-full focus:outline-none"
+            id="cariProdukDiNavigasi">
+          <button type="submit" class="bi bi-search" onclick="cariProdukDiNavigasi()"></button>
+        </div>
+        <div class="flex items-center gap-5">
+          <a href="favorit.html" class="bi bi-heart"></a>
+          <a href="keranjang.html" class="bi bi-cart"></a>
+          <a href="struk.html" class="bi bi-receipt"></a>
+          <div class="flex items-center gap-3" id="authentikasi"></div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="flex flex-col items-center py-10 px-5 sm:px-8 md:px-10 lg:px-15 xl:px-20">
+    <h1 class="text-2xl font-semibold mb-5">Produk Favorit <span class="bi bi-heart-fill text-red-600"></span></h1>
+    <div id="listProdukFavorit" class="p-2 w-full bg-pink-50 flex justify-center gap-4 flex-wrap"></div>
+    <button onclick="hapusDariFavorit()" class="py-1 px-4 font-semibold bg-red-600 text-white">Hapus semua dari
+      favorit</button>
+  </div>
+
+  <script>
+    const favorit = JSON.parse(localStorage.getItem('favorit'));
+
+    favorit.forEach(produk => {
+      document.getElementById('listProdukFavorit').innerHTML += `<div class="produk">
+          <img src="${produk.gambar}" alt="" class="mb-6">
+          <div>
+            <h1>${produk.nama}</h1>
+            <span class="font-bold">Rp. ${produk.harga.toLocaleString('ID')}</span>
+          </div>
+        </div>`;
+    })
+
+    function hapusDariFavorit() {
+      localStorage.removeItem('favorit');
+    }
+
+    const sudahLogin = JSON.parse(localStorage.getItem('sudah_login')) || '';
+
+    if (sudahLogin.kondisi == true && sudahLogin != '') {
+      document.getElementById('authentikasi').innerHTML = `
+      <span>${sudahLogin.username}</span>
+      <button class="py-1 px-4 bg-blue-800 font-semibold text-white" onclick="logout()">Logout</button>`
+    } else {
+      document.getElementById('authentikasi').innerHTML = `
+        <a href="login.html">Login</a>
+        <a href="register.html">Register</a>`;
+    }
+
+    function logout() {
+      localStorage.removeItem('sudah_login');
+      location.reload();
+      window.location - 'home.html';
+    }
+  </script>
+</body>
+
+</html>

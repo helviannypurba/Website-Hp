@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+
+<body
+  class="w-full h-screen flex items-center justify-center bg-pink-50 bg-[url('https://img.freepik.com/free-photo/top-view-smartphone-marble-table_23-2150837803.jpg?t=st=1736429286~exp=1736432886~hmac=d4e223e812b5b95cbbf42535a0a3d27155f49f3e8b4030f87709fe15d4524888&w=996')] bg-center bg-cover bg-center">
+  <div class="bg-white p-10 rounded-xl border-2 border-blue-600">
+    <div class="mb-16 text-center">
+      <h1 class="text-xl font-semibold text-blue-700 mb-1">Girls Store</h1>
+      <h2 class="text-3xl font-semibold">Register</h2>
+    </div>
+    <form id="register-form">
+      <div class="my-4">
+        <label for="register-username"><span class="bi bi-person text-xl mr-4"></span></label>
+        <input type="text" id="register-username" class="border-2 p-1 w-80 font-semibold" required placeholder="Username">
+      </div>
+      <div class="my-4 mb-8">
+        <label for="register-password"><span class="bi bi-shield-lock text-xl mr-4"></span></label>
+        <input type="password" id="register-password" class="border-2 p-1 w-80 font-semibold" required placeholder="Password">
+      </div>
+      <button type="submit" class="py-1 px-4 bg-blue-900 text-white font-semibold">Daftar</button>
+      <p id="message"></p>
+      <p>Sudah punya akun? <a href="login.html" class="text-blue-700 underline">Masuk</a></p>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("register-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const username = document.getElementById("register-username").value;
+      const password = document.getElementById("register-password").value;
+
+      if (localStorage.getItem(username)) {
+        displayMessage("User sudah ada", "gagal");
+        return;
+      }
+
+      localStorage.setItem(username, JSON.stringify({ password }));
+      displayMessage("Registrasi berhasil", "berhasil");
+
+      e.target.reset();
+    });
+
+    function displayMessage(message, type) {
+      const messageElement = document.getElementById("message");
+      messageElement.textContent = message;
+      messageElement.style.color = type === "berhasil" ? "green" : "red";
+    }
+
+  </script>
+</body>
+
+</html>
